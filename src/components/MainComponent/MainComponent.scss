@@ -1,0 +1,26 @@
+.mainComponent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card{
+    width: 21%;
+    margin-top: 20px;
+    padding: 10px 0px;
+    border-radius: 8px;
+    img{
+        width: 200px;
+        height: 200px;
+        margin: auto;
+    }
+}
+.card-body{
+    a{
+        text-decoration: none;
+        color: rgb(155, 22, 22);
+        cursor: pointer;
+    }
+    a:hover{
+        color: rgb(238, 24, 24);
+    }
+}
