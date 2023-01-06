@@ -8,10 +8,10 @@ export default function Home(props) {
 
   return (
     <div>
-      <Header storeAmount={props.storeAmount} setSortValue={setSortValue} searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Header  setSortValue={setSortValue} searchValue={searchValue} setSearchValue={setSearchValue} />
       <MainComponent
         setCard_info={props.setCard_info}
-        storeAmount={props.storeAmount}
+        setEditCard={props.setEditCard}
         sortValue={sortValue}
         searchValue={searchValue}
       />

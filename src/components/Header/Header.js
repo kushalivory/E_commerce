@@ -1,5 +1,7 @@
 import React from "react";
 import "./Header.scss";
+import { Link } from "react-router-dom";
+
 
 export default function Header(props) {
   return (
@@ -19,9 +21,13 @@ export default function Header(props) {
        <button type="button" className="btn btn-danger position-relative">
           Cart
           <span className="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
-          {props.storeAmount}            {/* <span className="visually-hidden">unread messages</span> */}
+          0
           </span>
         </button>
+        <Link to="/newProduct"><button className="btn btn-danger mx-1">
+              Add New Product
+            </button></Link>
+        
         <span></span>
 
           <a className="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">

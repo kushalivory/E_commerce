@@ -22,7 +22,7 @@ const composeEnhancers =
       applyMiddleware(sagaMiddleware),
     );
 
-const rootReducer = combineReducers({myFirstReducer , storeAmount:reducer});
+const rootReducer = combineReducers({myFirstReducer , reducer});
 const store = createStore(rootReducer , enhancer);
 store.subscribe(()=>{ store.getState()})
 

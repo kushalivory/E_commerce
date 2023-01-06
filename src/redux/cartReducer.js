@@ -1,9 +1,7 @@
-const reducer = (state=0 , action)=> {
+const reducer = (state={} , action)=> {
     if(action.type === 'Add'){
-        return state + action.payload
-    }
-    else if(action.type === 'Withdraw'){
-        return state - action.payload
+        console.log(action,"action")
+        return state;
     }
     else{
         return state;

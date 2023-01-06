@@ -11,7 +11,7 @@ export default function MainComponent(props) {
 
   useEffect(() => {
     dispatch(actions.getUsersFetch());
-  }, [info]);
+  }, []);
 
   useEffect(() => {
     if (users && props.sortValue === "default") {
@@ -39,12 +39,14 @@ export default function MainComponent(props) {
     }
   }, [info, users, props]);
 
-  function handleClickForAdd() {
-    dispatch(actions.addReduxMoney(1));
+  function handleClickForAdd(item) {
+    dispatch(actions.addProductInCart(item));
   }
-  function handleClickForWithdraw() {
-    if (props.storeAmount > 0) dispatch(actions.withdrawReduxMoney(1));
+  
+  function handleClickForDelete(item) {
+    dispatch(actions.deleteProduct(item));
   }
+  
   return (
     <div className="mainComponent">
       {info.filter(item => item.title.match(new RegExp(props.searchValue, "i"))).map((item, idx) => (
@@ -61,12 +63,19 @@ export default function MainComponent(props) {
             </Link>
             <h4 className="card-text">Price: ${item.price}</h4>
             <h4 className="card-text">Rating: {item.rating.rate}</h4>
-            <button className="btn btn-danger" onClick={handleClickForAdd}>
-              +
+            <button className="btn btn-danger mx-1" onClick={() => handleClickForAdd(item)}>
+              Add To Cart
             </button>
-            <button className="btn btn-danger" onClick={handleClickForWithdraw}>
-              -
+            <Link to="/edit">
+            <button className="btn btn-danger mx-1" onClick={() => props.setEditCard(item)}>
+              Edit
             </button>
+            </Link>
+            <Link to="/delete">
+            <button className="btn btn-danger mx-1" onClick={() => handleClickForDelete(item)}>
+              Delete
+            </button>
+            </Link>
           </div>
         </div>
       ))}
